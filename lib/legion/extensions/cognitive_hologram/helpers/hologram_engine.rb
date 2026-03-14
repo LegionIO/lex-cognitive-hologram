@@ -65,7 +65,7 @@ module Legion
           def most_fragmented(limit: 5)
             @holograms.values
                       .select { |h| h.fragments.any? }
-                      .sort_by { |h| h.resolution }
+                      .sort_by(&:resolution)
                       .first(limit)
           end
 

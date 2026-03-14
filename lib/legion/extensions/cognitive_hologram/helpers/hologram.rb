@@ -34,8 +34,8 @@ module Legion
           def fragment!(count)
             count = count.clamp(1, 20)
             new_fragments = (1..count).map do |i|
-              completeness = (1.0 / count + rand * 0.2).clamp(0.0, 1.0)
-              fidelity     = (1.0 - (i - 1).to_f / (count * 2)).clamp(0.0, 1.0)
+              completeness = ((1.0 / count) + (rand * 0.2)).clamp(0.0, 1.0)
+              fidelity     = (1.0 - ((i - 1).to_f / (count * 2))).clamp(0.0, 1.0)
               HolographicFragment.new(
                 content:            @content,
                 parent_hologram_id: @id,
@@ -56,10 +56,10 @@ module Legion
             reconstructed_resolution = ((avg_completeness + avg_fidelity) / 2.0).round(10)
 
             {
-              success:    true,
-              resolution: reconstructed_resolution,
-              label:      resolution_label(reconstructed_resolution),
-              fragment_count: sufficient.size,
+              success:         true,
+              resolution:      reconstructed_resolution,
+              label:           resolution_label(reconstructed_resolution),
+              fragment_count:  sufficient.size,
               total_fragments: fragments.size
             }
           end

@@ -190,7 +190,7 @@ RSpec.describe Legion::Extensions::CognitiveHologram::Helpers::Hologram do
     end
 
     it 'returns higher interference for more overlapping content' do
-      close  = described_class.new(domain: :memory, content: 'the quick brown fox jumps')
+      close = described_class.new(domain: :memory, content: 'the quick brown fox jumps')
       distant = described_class.new(domain: :memory, content: 'completely different words here')
       expect(hologram.interference_with(close)).to be > hologram.interference_with(distant)
     end

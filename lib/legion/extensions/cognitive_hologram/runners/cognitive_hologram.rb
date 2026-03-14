@@ -17,9 +17,6 @@ module Legion
             Legion::Logging.debug "[cognitive_hologram] created hologram: domain=#{domain} id=#{hologram.id}"
 
             { success: true, hologram: hologram.to_h }
-          rescue ArgumentError => e
-            Legion::Logging.error "[cognitive_hologram] create failed: #{e.message}"
-            { success: false, error: e.message }
           rescue StandardError => e
             Legion::Logging.error "[cognitive_hologram] create failed: #{e.message}"
             { success: false, error: e.message }
@@ -75,7 +72,7 @@ module Legion
               hologram_id_b: hologram_id_b
             )
 
-            Legion::Logging.debug "[cognitive_hologram] interference_check: " \
+            Legion::Logging.debug '[cognitive_hologram] interference_check: ' \
                                   "a=#{hologram_id_a} b=#{hologram_id_b} score=#{result[:interference]}"
 
             result.merge(success: true)

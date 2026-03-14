@@ -46,9 +46,9 @@ RSpec.describe Legion::Extensions::CognitiveHologram::Runners::CognitiveHologram
     end
 
     it 'accepts extra keyword arguments via ** splat' do
-      expect {
+      expect do
         runner.create(domain: :memory, content: 'valid', engine: engine, extra: :ignored)
-      }.not_to raise_error
+      end.not_to raise_error
     end
   end
 
@@ -80,9 +80,9 @@ RSpec.describe Legion::Extensions::CognitiveHologram::Runners::CognitiveHologram
     end
 
     it 'accepts extra keyword arguments' do
-      expect {
+      expect do
         runner.fragment(hologram_id: hologram_id, count: 2, engine: engine, extra: :ignored)
-      }.not_to raise_error
+      end.not_to raise_error
     end
   end
 
@@ -115,9 +115,9 @@ RSpec.describe Legion::Extensions::CognitiveHologram::Runners::CognitiveHologram
     end
 
     it 'accepts extra keyword arguments' do
-      expect {
+      expect do
         runner.reconstruct(hologram_id: hologram_id, fragment_ids: [], engine: engine, extra: :ok)
-      }.not_to raise_error
+      end.not_to raise_error
     end
   end
 
@@ -152,9 +152,9 @@ RSpec.describe Legion::Extensions::CognitiveHologram::Runners::CognitiveHologram
     end
 
     it 'accepts extra keyword arguments' do
-      expect {
+      expect do
         runner.list_holograms(engine: engine, extra: :ignored)
-      }.not_to raise_error
+      end.not_to raise_error
     end
   end
 
@@ -191,9 +191,9 @@ RSpec.describe Legion::Extensions::CognitiveHologram::Runners::CognitiveHologram
     end
 
     it 'accepts extra keyword arguments' do
-      expect {
+      expect do
         runner.interference_check(hologram_id_a: id_a, hologram_id_b: id_b, engine: engine, extra: :ok)
-      }.not_to raise_error
+      end.not_to raise_error
     end
   end
 
@@ -231,9 +231,9 @@ RSpec.describe Legion::Extensions::CognitiveHologram::Runners::CognitiveHologram
     end
 
     it 'accepts extra keyword arguments' do
-      expect {
+      expect do
         runner.hologram_status(engine: engine, extra: :ignored)
-      }.not_to raise_error
+      end.not_to raise_error
     end
   end
 end
